@@ -1,0 +1,149 @@
+baseURL = "http://sctypo.com/"
+languageCode = "fr"
+defaultContentLanguage = "fr"
+languageName = "Français"
+title = "sctypo.com"
+disableKinds = ["404", "RSS", "sitemap", "taxonomy", "term"]
+paginate = 10
+paginatePath = "page"
+canonifyURLs = true
+enableRobotsTXT = true
+
+[build]
+    writeStats = true
+
+[markup]
+    defaultMarkdownHandler = "goldmark"
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            hardWraps = false
+            unsafe = true
+    [markup.highlight]
+        codeFences = true
+        guessSyntax = false
+        noClasses = true
+        style = "tango"
+    [markup.tableOfContents]
+        startLevel = 2
+        endLevel = 6
+        ordered = false
+
+[menu]
+    [[menu.main]]
+        identifier = "philosophie"
+        name = "Philosophie"
+        title = "Conception du métier de typographe"
+        pageRef = "/philosophie"
+        weight = 10
+    [[menu.main]]
+        identifier = "prestations"
+        name = "Prestations"
+        title = "Liste des services proposés"
+        pageRef = "/prestations"
+        weight = 20
+    [[menu.main]]
+        identifier = "preparation"
+        name = "Préparation de copie et saisie"
+        title = "Préparation de copie et saisie"
+        pageRef = "/prestations/preparation-copie-saisie"
+        parent = "prestations"
+        weight = 1
+    [[menu.main]]
+        identifier = "correction"
+        name = "Correction d’épreuves et report"
+        title = "Correction d’épreuves et report"
+        pageRef = "/prestations/correction-epreuves-report"
+        parent = "prestations"
+        weight = 2
+    [[menu.main]]
+        identifier = "programmation"
+        name = "Programmation de maquette"
+        title = "Programmation de maquette"
+        pageRef = "/prestations/programmation-maquette"
+        parent = "prestations"
+        weight = 3
+    [[menu.main]]
+        identifier = "illustration"
+        name = "Insertion d’illustrations"
+        title = "Insertion d’illustrations"
+        pageRef = "/prestations/insertion-illustrations"
+        parent = "prestations"
+        weight = 4
+    [[menu.main]]
+        identifier = "referencement"
+        name = "Référencement et indexation"
+        title = "Référencement et indexation"
+        pageRef = "/prestations/referencement-indexation"
+        parent = "prestations"
+        weight = 5
+    [[menu.main]]
+        identifier = "production"
+        name = "Production de la version finale"
+        title = "Production de la version finale"
+        pageRef = "/prestations/production-version-finale"
+        parent = "prestations"
+        weight = 6
+    [[menu.main]]
+        identifier = "realisations"
+        name = "Réalisations"
+        title = "Exemples de mise en pages"
+        pageRef = "/realisations"
+        weight = 30
+    [[menu.main]]
+        identifier = "bibliographie"
+        name = "Bibliographie"
+        title = "Liste des références citées"
+        pageRef = "/bibliographie"
+        weight = 40
+    [[menu.main]]
+        identifier = "contact"
+        name = "Contact"
+        title = "Adresse, numéro de téléphone, courriel"
+        pageRef = "/contact"
+        weight = 50
+    [[menu.footer]]
+        identifier = "mentionslegales"
+        name = "Mentions légales"
+        title = "Politique de confidentialité et RGPD"
+        pageRef = "/mentions-legales"
+        weight = 10
+    [[menu.footer]]
+        identifier = "conditionsgeneralesdevente"
+        name = "CGV"
+        title = "Conditions générales de vente (fichier PDF)"
+        url = "/pdf/cgv.pdf"
+        weight = 20
+    [[menu.footer]]
+        identifier = "credits"
+        name = "Crédits"
+        title = "Production et illustration du site"
+        pageRef = "/credits"
+        weight = 30
+
+[params]
+    title = "sctypo.com"
+    author = "Christian Scheen"
+    email = "Adresse électronique non divulguée"
+    description = "Typographie scientifique et littéraire"
+    mainSections = ["prestations"]
+    images = ["/img/favicon.png"]
+    bulmaVersion = "0.9.4"
+    tocOpen = false
+
+[permalinks]
+    prestations = "/prestations/:filename/"
+    "/" = "/:filename/"
+
+[privacy]
+    [privacy.disqus]
+        disable = true
+    [privacy.googleAnalytics]
+        disable = true
+    [privacy.instagram]
+        disable = true
+    [privacy.twitter]
+        disable = true
+    [privacy.vimeo]
+        disable = true
+    [privacy.youtube]
+        disable = true

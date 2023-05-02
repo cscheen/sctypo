@@ -1,0 +1,42 @@
+[contents]
+    other = "Sommaire"
+[css_framework]
+    other = "Infrastructure logicielle CSS"
+[description]
+    other = "Description de la prestation"
+[direct_link]
+    other = "Lien direct"
+[featured_image]
+    other = "Image à la une"
+[full_resolution_image]
+    other = "Image en pleine résolution"
+[home_page]
+    other = "Page d’accueil"
+[image_by]
+    other = "Illustration par"
+[iso8601]
+    other = "ISO&nbsp;8601&nbsp;:"
+[keyboard_shortcut]
+    other = "Raccourci au clavier&nbsp;:"
+[move_subtitle_to_top_of_page]
+    other = "Déplacer le sous-titre en haut de la page"
+[next_service]
+    other = "Prestation suivante"
+[photographic_credit]
+    other = "Crédit photographique"
+[previous_service]
+    other = "Prestation précédente"
+[see]
+    other = "voir"
+[show_or_hide_contents]
+    other = "Afficher ou masquer le sommaire"
+[site_powered_by]
+    other = "Site produit par"
+[static_site_generator]
+    other = "Générateur de site statique"
+[title]
+    other = "Service proposé"
+[updated]
+    other = "Mis à jour"
+[with]
+    other = "avec"

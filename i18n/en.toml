@@ -1,0 +1,42 @@
+[contents]
+    other = "Contents"
+[css_framework]
+    other = "CSS framework"
+[description]
+    other = "Service description"
+[direct_link]
+    other = "Direct link"
+[featured_image]
+    other = "Featured image"
+[full_resolution_image]
+    other = "Full resolution image"
+[home_page]
+    other = "Home page"
+[image_by]
+    other = "Image by"
+[iso8601]
+    other = "ISO&nbsp;8601:"
+[keyboard_shortcut]
+    other = "Keyboard shortcut:"
+[move_subtitle_to_top_of_page]
+    other = "Move subtitle to top of page"
+[next_service]
+    other = "Next service"
+[photographic_credit]
+    other = "Photographic credit"
+[previous_service]
+    other = "Previous service"
+[see]
+    other = "see"
+[show_or_hide_contents]
+    other = "Show or hide contents"
+[site_powered_by]
+    other = "Site powered by"
+[static_site_generator]
+    other = "Static site generator"
+[title]
+    other = "Service provided"
+[updated]
+    other = "Updated"
+[with]
+    other = "with"

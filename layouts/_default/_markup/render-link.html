@@ -1,0 +1,2 @@
+<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . | markdownify | plainify }}"{{ end }}{{ if strings.HasPrefix .Destination "http" }} rel="external noopener noreferrer"{{ end }}>{{ .Text | safeHTML }}</a>
+{{- /* This comment removes trailing newlines. */ -}}

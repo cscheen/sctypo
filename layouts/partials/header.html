@@ -1,0 +1,37 @@
+<header>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-item" href="{{ site.Home.RelPermalink }}" title="{{ i18n "home_page" }}"><span class="logo">{{ .Site.Title | markdownify }}</span></a>
+                </div>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarsctypo">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div class="navbar-menu" id="navbarsctypo">
+                <div class="navbar-start">
+                    {{- $currentPage := . -}}
+                    {{ range .Site.Menus.main -}}
+                        {{ if .HasChildren -}}
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link is-arrowless" href="{{ .PageRef }}" title="{{ .Title | markdownify | plainify }}">{{ .Name }}</a>
+                                <div class="navbar-dropdown">
+                                    {{ range .Children -}}
+                                        <a class="navbar-item" href="{{ .PageRef }}" title="{{ .Title | markdownify | plainify }}">{{ .Name }}</a>
+                                    {{ end -}}
+                                </div>
+                            </div>
+                        {{ else -}}
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-item" href="{{ .PageRef }}" title="{{ .Title | markdownify | plainify }}">{{ .Name }}</a>
+                            </div>
+                        {{ end -}}
+                    {{ end -}}
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

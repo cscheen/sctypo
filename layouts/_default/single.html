@@ -1,0 +1,18 @@
+{{ define "main" }}
+    <section class="section">
+        <article class="defaultsingle">
+            <div class="columns is-centered">
+                <div class="column max-textwidth">
+                    <div class="content">
+                        <header class="container has-text-left">
+                            <h1 class="title is-1">{{ .Title | markdownify }}</h1>
+                        </header>
+                    </div>
+                    <div class="content">
+                        {{- .Content -}}
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+{{ end }}

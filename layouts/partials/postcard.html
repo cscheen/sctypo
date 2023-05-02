@@ -1,0 +1,16 @@
+{{- $permalink := .Permalink -}}
+<div class="card">
+    <div class="card-image">
+        <figure class="image is-16by9">
+            {{ with .Params.images -}}
+                <a href="{{ $permalink }}"><img loading="lazy" src="{{ index . 0 }}" alt="{{ i18n "featured_image" . }}"></a>
+            {{ end -}}
+        </figure>
+    </div>
+    <div class="card-content">
+        <a href="{{ .Permalink }}" class="title is-6" title="{{ i18n "title" . }}">{{ .Title | markdownify }}</a>
+        <div class="content" title="{{ i18n "description" . }}">
+            {{- .Description | markdownify -}}
+        </div>
+    </div>
+</div>

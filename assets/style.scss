@@ -1,0 +1,421 @@
+// style.scss -- Sass CSS for sctypo.com
+//
+@charset "utf-8";
+$black: hsl(0,0%,0%) !default;
+$grey-darker: hsl(0,0%,13%) !default;
+$grey-light: hsl(0,0%,71%) !default;
+$grey-lightest: hsl(0,0%,93%) !default;
+$grey-background: hsl(0,0%,97%) !default;
+$white: hsl(0,0%,100%) !default;
+$red: hsl(9,92%,25%) !default;
+$green: hsl(129,92%,25%) !default;
+$blue: hsl(249,92%,25%) !default;
+$family-sans-serif: "Ysabeau", sans-serif !default;
+$family-serif: "Ysabeau", sans-serif !default;
+$family-monospace: "Fira Mono", monospace !default;
+$render-mode: optimizeLegibility !default;
+$weight-thin: 400 !default;
+$weight-extralight: 400 !default;
+$weight-light: 400 !default;
+$weight-normal: 400 !default;
+$weight-medium: 400 !default;
+$weight-semibold: 700 !default;
+$weight-bold: 700 !default;
+$weight-extrabold: 700 !default;
+$weight-black: 700 !default;
+$size-1: 1.8125rem !default;
+$size-2: 1.625rem !default;
+$size-3: 1.4375rem !default;
+$size-4: 1.25rem !default;
+$size-5: 1.125rem !default;
+$size-6: 1rem !default;
+$size-7: .875rem !default;
+$size-8: .8125rem !default;
+$primary: $blue !default;
+$scheme-main: $grey-background !default;
+$scheme-main-bis: $grey-lightest !default;
+$text: $grey-darker !default;
+$text-light: $grey-light !default;
+$text-strong: $black !default;
+$code: $text !default;
+$code-background: $scheme-main !default;
+$link: $text !default;
+$link-visited: $text !default;
+$link-hover: $text !default;
+$link-hover-border: $text !default;
+$link-focus: $text !default;
+$link-focus-border: $text !default;
+$link-active: $text !default;
+$link-active-border: $text !default;
+$family-primary: $family-sans-serif !default;
+$family-secondary: $family-serif !default;
+$family-code: $family-monospace !default;
+$body-line-height: 1.4375 !default;
+$body-rendering: $render-mode !default;
+$body-size: $size-6 !default;
+$code-padding: 0 !default;
+$code-size: $size-8 !default;
+$hr-background-color: $grey-light !default;
+$hr-height: 1px !default;
+$hr-margin: 0 0 1.5rem !default;
+$pre-font-size: $size-8 !default;
+$small-font-size: $size-7 !default;
+$colophon-size: $size-7 !default;
+$script-size: $size-8 !default;
+$section-padding: 5rem .75rem 3.5rem !default;
+$navbar-background-color: $grey-lightest !default;
+$navbar-item-color: $link !default;
+$footer-background-color: $grey-lightest !default;
+$footer-padding: 1rem 1.5rem !default;
+$card-background-color: $grey-lightest !default;
+$card-shadow: none !default;
+@import "bulma/bulma.sass";
+@font-face {
+    font-family: "Ysabeau";
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    src:url("../webfonts/Ysabeau-Medium.woff2") format("woff2"),
+        url("../webfonts/Ysabeau-Medium.woff") format("woff");
+}
+@font-face {
+    font-family: "Ysabeau";
+    font-weight: normal;
+    font-style: italic;
+    font-variant: normal;
+    src:url("../webfonts/Ysabeau-MediumItalic.woff2") format("woff2"),
+        url("../webfonts/Ysabeau-MediumItalic.woff") format("woff");
+}
+@font-face {
+    font-family: "Ysabeau";
+    font-weight: bold;
+    font-style: normal;
+    font-variant: normal;
+    src:url("../webfonts/Ysabeau-Bold.woff2") format("woff2"),
+        url("../webfonts/Ysabeau-Bold.woff") format("woff");
+}
+@font-face {
+    font-family: "Ysabeau";
+    font-weight: bold;
+    font-style: italic;
+    font-variant: normal;
+    src:url("../webfonts/Ysabeau-BoldItalic.woff2") format("woff2"),
+        url("../webfonts/Ysabeau-BoldItalic.woff") format("woff");
+}
+@font-face {
+    font-family: "Fira Mono";
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    src:url("../webfonts/FiraMono-Regular.woff2") format("woff2"),
+        url("../webfonts/FiraMono-Regular.woff") format("woff");
+}
+@font-face {
+    font-family: "Fira Mono";
+    font-weight: normal;
+    font-style: italic;
+    font-variant: normal;
+    src:url("../webfonts/FiraMono-Regular.woff2") format("woff2"),
+        url("../webfonts/FiraMono-Regular.woff") format("woff");
+}
+@font-face {
+    font-family: "Fira Mono";
+    font-weight: bold;
+    font-style: normal;
+    font-variant: normal;
+    src:url("../webfonts/FiraMono-Bold.woff2") format("woff2"),
+        url("../webfonts/FiraMono-Bold.woff") format("woff");
+}
+@font-face {
+    font-family: "Fira Mono";
+    font-weight: bold;
+    font-style: italic;
+    font-variant: normal;
+    src:url("../webfonts/FiraMono-Bold.woff2") format("woff2"),
+        url("../webfonts/FiraMono-Bold.woff") format("woff");
+}
+@font-face {
+    font-family: "Feather";
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-display: block;
+    src:url("../webfonts/feather.woff2") format("woff2"),
+        url("../webfonts/feather.woff") format("woff");
+}
+.content h1 {
+    font-family: "Ysabeau", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-size: $size-1;
+    color: $text-strong;
+    margin-bottom: .75em;
+    &:not(:first-child) {
+        margin-top: 1.5em;
+    }
+}
+.content h2 {
+    font-family: "Ysabeau", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-size: $size-2;
+    color: $text-strong;
+    margin-bottom: .75em;
+    &:not(:first-child) {
+        margin-top: 1.5em;
+    }
+}
+.content h3 {
+    font-family: "Ysabeau", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    font-variant: normal;
+    font-size: $body-size;
+    color: $red;
+    margin-bottom: .75em;
+    &:not(:first-child) {
+        margin-top: 1.5em;
+    }
+}
+.content h4 {
+    font-family: "Ysabeau", sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    font-variant: normal;
+    font-size: $body-size;
+    color: $red;
+    margin-bottom: .75em;
+    &:not(:first-child) {
+        margin-top: 1.5em;
+    }
+}
+.content h5 {
+    font-family: "Ysabeau", sans-serif;
+    font-weight: normal;
+    font-style: italic;
+    font-variant: normal;
+    font-size: $body-size;
+    color: $red;
+    margin-bottom: .75em;
+    &:not(:first-child) {
+        margin-top: 1.5em;
+    }
+}
+.content h6 {
+    font-family: "Ysabeau", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-size: $body-size;
+    color: $red;
+    margin-bottom: .75em;
+    &:not(:first-child) {
+        margin-top: 1.5em;
+    }
+}
+a:active,
+a:focus,
+a:hover,
+a:link,
+a:visited {
+    text-decoration: underline;
+}
+a.tag:active,
+a.tag:focus,
+a.tag:hover,
+a.tag:link,
+a.tag:visited {
+    text-decoration: underline;
+}
+aside.tocaside {
+    margin-bottom: 1.5em;
+}
+.attribution {
+    font-size: $script-size;
+    line-height: 1.46153846154;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-feature-settings: "liga" 1, "kern" 1, "hlig" 1, "lnum" 0, "tnum" 1;
+}
+.call-to-action {
+    margin-bottom: 1em;
+}
+.colophon {
+    font-size: $colophon-size;
+    line-height: 1.42857142857;
+    opacity: .6;
+}
+.columns.is-vflexended {
+    align-items: flex-end;
+}
+.content blockquote {
+    background-color: $scheme-main;
+    border-left: 2px solid $grey-light;
+}
+.content figure {
+    margin-left: 0;
+    margin-right: 0;
+}
+.content figure figcaption {
+    margin-top: 1em;
+    font-style: normal;
+}
+.content ol,
+.content ol ol,
+.content ul,
+.content ul ul,
+.content li + li {
+    margin-top: 0;
+}
+.content sub,
+.content sup {
+    font-size: 81.25%;
+    line-height: 0;
+}
+.content table td {
+    border: none;
+}
+.content table th {
+    border-bottom: 1px solid $grey-darker;
+}
+.content table thead td {
+    border-width: 0;
+}
+.content table thead th {
+    border-width: 0 0 1px;
+}
+details > summary {
+    cursor: pointer;
+}
+em em,
+em i,
+i em,
+i i {
+    font-style: normal;
+}
+.featured-image {
+    padding-bottom: 1.5rem;
+}
+.footnotes {
+    font-size: $small-font-size;
+    line-height: 1.42857142857;
+}
+h1 .heading-link,
+h2 .heading-link,
+h3 .heading-link,
+h4 .heading-link,
+h5 .heading-link,
+h6 .heading-link {
+    color: $link;
+    text-decoration: none;
+    font-size: 66.67%;
+    margin-left: .5em;
+    transition: visibility .6s ease-in-out, opacity .6s ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+}
+h1:hover .heading-link,
+h2:hover .heading-link,
+h3:hover .heading-link,
+h4:hover .heading-link,
+h5:hover .heading-link,
+h6:hover .heading-link {
+    box-shadow: none;
+    visibility: visible;
+    opacity: 1;
+}
+.heading {
+    display: block;
+    font-size: $body-size;
+    letter-spacing: normal;
+    margin-bottom: .5em;
+    text-transform: none;
+}
+.highlight {
+    margin: 1em 0;
+    border-left: 2px solid $grey-light;
+}
+hr {
+    background-color: $grey-light;
+}
+.iconfont {
+    font-family: "Feather" !important;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    display: inline-block;
+    text-rendering: auto;
+    line-height: 1;
+}
+.icon-horizlink::before {
+    content: "\e882";
+}
+main {
+    flex: 1;
+}
+.max-textwidth {
+    max-width: 39rem;
+}
+.narrow-background {
+    display: table;
+    padding: .1875em 0;
+}
+nav#TableOfContents {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+nav#TableOfContents ul {
+    list-style-type: none;
+    list-style-position: outside;
+    margin: 0;
+    padding: 0;
+}
+nav#TableOfContents ul ul {
+    list-style-type: none;
+    list-style-position: outside;
+    margin: 0;
+    padding: 0 0 0 1em;
+}
+span.fullcaps {
+    text-transform: uppercase;
+    font-feature-settings: "lnum" 1;
+}
+span.initcap {
+    text-transform: capitalize;
+}
+span.liningnums {
+    font-feature-settings: "lnum" 1;
+}
+span.logo {
+    font-weight: bold;
+    color: $text-strong;
+}
+span.smallcaps {
+    font-variant: small-caps;
+    letter-spacing: .0625em;
+}
+table {
+    border-top: 2px solid $grey-darker;
+    border-bottom: 2px solid $grey-darker;
+}
+.title,
+.subtitle {
+    word-break: normal;
+    line-height: $body-line-height;
+    color: $text-strong;
+}
+.title:not(.is-spaced) + .subtitle {
+    margin-top: -1.125rem;
+}
+.tocinner {
+    padding: .5rem 0;
+}
+ul.no-bullet {
+    list-style-type: none;
+}

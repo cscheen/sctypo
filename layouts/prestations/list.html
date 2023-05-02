@@ -1,0 +1,25 @@
+{{ define "main" }}
+    <section class="section">
+        <article class="prestationslist">
+            <div class="columns is-centered">
+                <div class="column max-textwidth">
+                    <div class="content">
+                        <header class="container has-text-left">
+                            <h1 class="title is-1">{{ .Title | markdownify }}</h1>
+                        </header>
+                    </div>
+                    <div class="content">
+                        {{- .Content -}}
+                    </div>
+                    <div class="columns is-multiline">
+                        {{ range .Pages.ByWeight -}}
+                            <div class="column is-half">
+                                {{- partial "postcard.html" . -}}
+                            </div>
+                        {{ end -}}
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+{{ end }}

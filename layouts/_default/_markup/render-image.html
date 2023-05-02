@@ -1,0 +1,2 @@
+<p><img loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . | markdownify | plainify }}"{{ end }} /></p>
+{{- /* This comment removes trailing newlines. */ -}}

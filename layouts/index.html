@@ -1,0 +1,21 @@
+{{ define "main" }}
+    <section class="section">
+        <article class="homepage">
+            <div class="columns is-centered">
+                <div class="column max-textwidth">
+                    <div class="content">
+                        <header class="container has-text-left">
+                            <h1 class="title is-1">{{ .Site.Title | markdownify }}</h1>
+                            {{ with .Site.Params.Description -}}
+                                <h2 class="subtitle is-5">{{ . | markdownify }}</h2>
+                            {{ end -}}
+                        </header>
+                    </div>
+                    <div class="content">
+                        {{- .Content -}}
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+{{ end }}

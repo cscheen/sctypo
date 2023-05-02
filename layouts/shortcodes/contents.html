@@ -1,0 +1,8 @@
+<aside class="tocaside">
+    <details{{ if (.Site.Params.tocOpen) }} open{{ end }}>
+        <summary accesskey="c" title="{{ i18n "keyboard_shortcut" . | safeHTML }} Alt + Shift + C"><span class="smallcaps" title="{{ i18n "show_or_hide_contents" . }}">{{ i18n "contents" . }}</span></summary>
+        <div class="tocinner">
+            {{ replace .Page.TableOfContents `href="#` (printf `href="%s#` .Page.Permalink) | safeHTML -}}
+        </div>
+    </details>
+</aside>

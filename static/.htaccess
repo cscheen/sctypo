@@ -1,0 +1,83 @@
+# .htaccess for sctypo.com
+#
+Options All -Indexes
+IndexIgnore *
+ServerSignature Off
+Options +FollowSymLinks
+SetEnv TZ Europe/Paris
+AddDefaultCharset UTF-8
+ErrorDocument 404 /404/
+#
+<Files ~ "^.*\.([Hh][Tt][AaPp])">
+    order allow,deny
+    deny from all
+    satisfy all
+</Files>
+#
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond %{HTTP_REFERER} !^$
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteCond %{REQUEST_FILENAME} \.(gif|ico|jpe?g?|png)$ [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://([^.]+\.)?sctypo\. [NC]
+    RewriteRule \.(gif|ico|jpe?g?|png)$ - [F,NC,L]
+</IfModule>
+#
+#<Limit GET POST>
+#    order allow,deny
+#    deny from NNN.NNN.NNN.NNN
+#    allow from all
+#</Limit>
+#
+AddType application/octet-stream .mp3 .ogg
+#
+<IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresDefault "access plus 1 month"
+</IfModule>
+Header unset ETag
+FileETag None
+<IfModule mod_headers.c>
+    <filesMatch "\.(gif|ico|jpe?g?|png)$">
+        Header set Cache-Control "public"
+    </filesMatch>
+    <filesMatch "\.(css)$">
+        Header set Cache-Control "public"
+    </filesMatch>
+    <filesMatch "\.(js)$">
+        Header set Cache-Control "private"
+    </filesMatch>
+    <filesMatch "\.(x?html?|php)$">
+        Header set Cache-Control "private, must-revalidate"
+    </filesMatch>
+</IfModule>
+#
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/xhtml text/html text/plain text/xml text/javascript application/x-javascript text/css
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+    SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
+    Header append Vary User-Agent env=!dont-vary
+</IfModule>
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE text/javascript
+AddOutputFilterByType DEFLATE font/opentype
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/json
+#
+RewriteCond %{REQUEST_METHOD} GET
+RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=http:// [OR]
+RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=(\.\.//?)+ [OR]
+RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=/([a-z0-9_.]//?)+ [NC]
+RewriteRule .* - [F]
+#
+<IfModule mod_headers.c>
+    Header set X-XSS-Protection "1; mode=block"
+    Header always append X-Frame-Options SAMEORIGIN
+    Header set X-Content-Type-Options: "nosniff”
+</IfModule>

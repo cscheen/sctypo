@@ -1,0 +1,42 @@
+{{ define "main" }}
+    <section class="section">
+        <article class="prestationssingle">
+            <div class="columns is-centered">
+                <div class="column max-textwidth">
+                    <div class="content">
+                        <header class="container has-text-left">
+                            <h1 class="title is-1">{{ .Title | markdownify }}</h1>
+                        </header>
+                    </div>
+                    <figure class="featured-image">
+                        <img loading="lazy" src="{{ index .Params.Images 0 }}" alt="{{ .Params.Description }}">
+                        <figcaption class="attribution has-text-right">{{ i18n "image_by" }} {{ .Params.imgAuthor | safeHTML }} ({{ i18n "see" }} <a href="{{ .Params.imgURL }}" title="{{ i18n "photographic_credit" }}">{{ .Params.imgWebSite }}</a>)</figcaption>
+                    </figure>
+                    <div class="content">
+                        {{- .Content -}}
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+    <section class="section">
+        <div class="columns is-centered">
+            <div class="column max-textwidth">
+                <div class="columns is-mobile">
+                    <div class="column has-text-left">
+                        {{ with .NextInSection -}}
+                            <p>&larr;&nbsp;<em>{{ i18n "previous_service" }}</em></p>
+                            <p><a class="next" href="{{ .Permalink }}" title="{{ .Description }}">{{ .Title | markdownify }}</a></p>
+                        {{ end -}}
+                    </div>
+                    <div class="column has-text-right">
+                        {{ with .PrevInSection -}}
+                            <p><em>{{ i18n "next_service" }}</em>&nbsp;&rarr;</p>
+                            <p><a class="previous" href="{{ .Permalink }}" title="{{ .Description }}">{{ .Title | markdownify }}</a></p>
+                        {{ end -}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{{ end }}

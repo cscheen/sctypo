@@ -1,0 +1,60 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo ({{ .Site.Hugo.Version }}) {{ i18n "with" }} Bulma ({{ .Site.Params.bulmaVersion }})">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>{{ if not .IsHome }}{{ with .Title }}{{ . | markdownify | plainify }}&nbsp;&middot; {{ end }}{{ end }}{{ .Site.Title | markdownify | plainify }}</title>
+    <meta name="description" content="{{ with .Description }}{{ . | markdownify | plainify }}{{ else }}{{ with .Summary }}{{ . | markdownify | plainify }}{{ else }}{{ .Site.Params.description | markdownify | plainify }}{{ end }}{{ end }}">
+    <meta name="author" content="{{ with .Site.Params.author }}{{ . | markdownify | plainify }}{{ end }}">
+    <link rel="icon" type="image/png" href="{{ "/img/favicon.png" | absURL }}">
+    <link rel="shortcut icon" type="image/png" href="{{ "/img/favicon.png" | absURL }}">
+    <link rel="apple-touch-icon" href="{{ "/img/favicon.png" | absURL }}">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="canonical" href="{{ .Permalink }}">
+    <meta property="og:site_name" content="{{ .Site.Params.title | markdownify | plainify }}">
+    <meta property="og:title" content="{{ .Title | markdownify | plainify }}">
+    <meta property="og:description" content="{{ with .Description }}{{ . | markdownify | plainify }}{{ else }}{{ if .IsPage }}{{ .Summary | markdownify | plainify }}{{ else }}{{ with .Site.Params.description }}{{ . | markdownify | plainify }}{{ end }}{{ end }}{{ end }}">
+    <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    {{ with $.Params.images -}}
+        {{ range first 6 . -}}
+            <meta property="og:image" content="{{ . | absURL }}">
+        {{ end -}}
+    {{ else -}}
+        {{ with $.Site.Params.images -}}
+            <meta property="og:image" content="{{ index . 0 | absURL }}">
+        {{ end -}}
+    {{ end -}}
+    {{ if .IsPage -}}
+        {{ $iso8601 := "2006-01-02T15:04:05Z07:00" -}}
+        <meta property="article:section" content="{{ .Section }}">
+        {{ with .PublishDate -}}
+            <meta property="article:published_time" {{ .Format $iso8601 | printf "content=%q" | safeHTMLAttr }}>
+        {{ end -}}
+        {{ with .Lastmod -}}
+            <meta property="article:modified_time" {{ .Format $iso8601 | printf "content=%q" | safeHTMLAttr }}>
+        {{ end -}}
+    {{ end -}}
+    <meta name="twitter:card" content="summary_large_image">
+    {{ with $.Params.images -}}
+        <meta name="twitter:image" content="{{ index . 0 | absURL }}">
+    {{ else -}}
+        {{ with $.Site.Params.images -}}
+            <meta name="twitter:image" content="{{ index . 0 | absURL }}">
+        {{ end -}}
+    {{ end -}}
+    <meta name="twitter:title" content="{{ .Title | markdownify | plainify }}">
+    <meta name="twitter:description" content="{{ with .Description }}{{ . | markdownify | plainify }}{{ else }}{{ if .IsPage }}{{ .Summary | markdownify | plainify }}{{ else }}{{ with .Site.Params.description }}{{ . | markdownify | plainify }}{{ end }}{{ end }}{{ end }}">
+    {{ range .AlternativeOutputFormats -}}
+        {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink ($.Site.Title | markdownify | plainify) | safeHTML -}}
+    {{ end -}}
+    {{ $options := (dict "outputStyle" "compressed" "includePaths" (slice "bulma/sass")) -}}
+    {{ $style := resources.Get "style.scss" | resources.ToCSS $options | resources.PostCSS -}}
+    {{ if hugo.IsProduction -}}
+        {{ $style = $style | resources.Fingerprint "sha256" | resources.PostProcess -}}
+    {{ end -}}
+    <link rel="stylesheet" type="text/css" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+    {{ $js := resources.Get "js/script.js" | resources.Minify | resources.Fingerprint "sha256" -}}
+    <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+</head>

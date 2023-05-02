@@ -1,0 +1,23 @@
+{{ define "main" }}
+    <section class="section">
+        <article class="defaultlist">
+            <div class="columns is-centered">
+                <div class="column max-textwidth">
+                    <div class="content">
+                        <header class="container has-text-left">
+                            <h1 class="title is-1">{{ .Title | markdownify }}</h1>
+                            {{- .Content -}}
+                        </header>
+                    </div>
+                    <div class="content">
+                        <ul>
+                            {{ range .Pages -}}
+                                <li><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></li>
+                            {{ end -}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+{{ end }}

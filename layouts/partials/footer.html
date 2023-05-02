@@ -1,0 +1,23 @@
+<footer class="footer">
+    <div class="container">
+        <div class="columns is-centered">
+            {{ range .Site.Menus.footer -}}
+                <div class="column is-narrow">
+                    <a class="footer-item" href="{{ .URL }}" title="{{ .Title | markdownify | plainify }}">{{ .Name }}</a>
+                </div>
+            {{ end -}}
+        </div>
+        <div class="columns is-centered is-vflexended is-desktop colophon">
+            <div class="column is-one-third has-text-left">
+            </div>
+            <div class="column is-one-third has-text-centered">
+                <hr>
+                <p>&copy;&nbsp;<a href="{{ site.Home.RelPermalink }}" title="{{ .Site.Title | markdownify | plainify }}">{{ .Site.Params.author }}</a>&nbsp;{{ now.Format "2006" }}<br>
+                {{- i18n "site_powered_by" }} <a href="https://gohugo.io/" title="{{ i18n "static_site_generator" }}">Hugo</a> ({{ .Site.Hugo.Version }}) {{ i18n "with" }} <a href="https://bulma.io/" title="{{ i18n "css_framework" }}">Bulma</a> ({{ .Site.Params.bulmaVersion }})<br>
+                {{- i18n "updated" }} <time datetime="{{ now.Format "2006-01-02T15:04:05Z07:00" }}" title="{{ i18n "iso8601" | safeHTML }} {{ now.Format "2006-01-02T15:04:05Z07:00" }}">{{ index $.Site.Data.weekdayslc (printf "%d" now.Weekday) }}&nbsp;{{ now.Day }} {{ index $.Site.Data.monthslc (printf "%d" now.Month) }}&nbsp;{{ now.Year }}</time></p>
+            </div>
+            <div class="column is-one-third has-text-right">
+            </div>
+        </div>
+    </div>
+</footer>
