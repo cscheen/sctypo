@@ -12,6 +12,10 @@ The generic scheme for subtitles is therefore `## [YY.MM.DD] - YYYY-0M-0D`,
 where `YYYY` stands for full year (2023..9999), `0M` for zero-padded month
 (01..12), and `0D` for zero-padded day (01..31).
 
+## [23.5.3] - 2023-05-03
+
+*   baseURL uses https (not http) in `hugo.toml`
+
 ## [23.4.28] - 2023-04-28
 
 *   First public release.
