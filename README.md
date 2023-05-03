@@ -2,7 +2,7 @@
 
 This repository contains the (software code and contents) sources of
 [Christian Scheen](https://github.com/cscheen)’s
-[professional website](http://sctypo.com/).
+[professional website](https://sctypo.com/).
 It is a website powered by the
 [Hugo](https://gohugo.io/)
 static site generator (SSG), with the
